@@ -110,6 +110,9 @@ class Utils {
     return a.year == b.year && a.month == b.month && a.day == b.day;
   }
 
+  static bool previousDay(DateTime a, DateTime b) {
+    return a.year <= b.year && a.month <= b.month && a.day < b.day;
+  }
   static bool isSameWeek(DateTime a, DateTime b) {
     /// Handle Daylight Savings by setting hour to 12:00 Noon
     /// rather than the default of Midnight
