@@ -194,12 +194,12 @@ class _CalendarState extends State<Calendar> {
         Column(
           children: <Widget>[
             todayIcon ?? Container(),
-            // Text(
-            //   displayMonth,
-            //   style: TextStyle(
-            //     fontSize: 20.0,
-            //   ),
-            // ),
+            Text(
+              displayMonth,
+              style: TextStyle(
+                fontSize: 20.0,
+              ),
+            ),
           ],
         ),
         rightArrow ?? Container(),
