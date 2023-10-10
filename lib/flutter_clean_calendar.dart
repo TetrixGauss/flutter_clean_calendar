@@ -301,6 +301,7 @@ class _CalendarState extends State<Calendar> {
                 selectedColor: widget.selectedColor,
                 todayColor: widget.todayColor,
                 eventColor: widget.eventColor,
+                sameDayColor: widget.sameDayColor,
                 eventDoneColor: widget.eventDoneColor,
                 events: widget.events![day],
                 onDateSelected: () => handleSelectedDateAndUserCallback(day),
@@ -308,7 +309,6 @@ class _CalendarState extends State<Calendar> {
                 dateStyles: configureDateStyle(monthStarted, monthEnded),
                 isSelected: Utils.isSameDay(selectedDate, day),
                 inMonth: day.month == selectedDate.month),
-                sameDayColor: widget.sameDayColor,
           );
         }
       },
