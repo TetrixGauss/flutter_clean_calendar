@@ -93,6 +93,7 @@ class Calendar extends StatefulWidget {
   final TextStyle? bottomBarTextStyle;
   final Color? bottomBarArrowColor;
   final Color? bottomBarColor;
+  final Color? sameDayColor;
   final String? expandableDateFormat;
 
   Calendar({
@@ -122,6 +123,7 @@ class Calendar extends StatefulWidget {
     this.bottomBarTextStyle,
     this.bottomBarArrowColor,
     this.bottomBarColor,
+    this.sameDayColor,
     this.expandableDateFormat = 'EEEE MMMM dd, yyyy',
   });
 
@@ -248,6 +250,7 @@ class _CalendarState extends State<Calendar> {
             events: widget.events![day],
             isDayOfWeek: true,
             dayOfWeek: day,
+            sameDayColor: widget.sameDayColor,
             dayOfWeekStyle: widget.dayOfWeekStyle ??
                 TextStyle(
                   color: widget.selectedColor,
@@ -287,6 +290,7 @@ class _CalendarState extends State<Calendar> {
               eventDoneColor: widget.eventDoneColor,
               events: widget.events![day],
               child: widget.dayBuilder!(context, day),
+              sameDayColor: widget.sameDayColor,
               date: day,
               onDateSelected: () => handleSelectedDateAndUserCallback(day),
             ),
@@ -304,6 +308,7 @@ class _CalendarState extends State<Calendar> {
                 dateStyles: configureDateStyle(monthStarted, monthEnded),
                 isSelected: Utils.isSameDay(selectedDate, day),
                 inMonth: day.month == selectedDate.month),
+                sameDayColor: widget.sameDayColor,
           );
         }
       },

@@ -40,6 +40,7 @@ class CalendarTile extends StatelessWidget {
   final Color? todayColor;
   final Color? eventColor;
   final Color? eventDoneColor;
+  final Color? sameDayColor;
 
   CalendarTile({
     this.onDateSelected,
@@ -56,6 +57,7 @@ class CalendarTile extends StatelessWidget {
     this.todayColor,
     this.eventColor,
     this.eventDoneColor,
+    this.sameDayColor,
   });
 
   /// This function [renderDateOrDayOfWeek] renders the week view or the month view. It is
@@ -91,7 +93,7 @@ class CalendarTile extends StatelessWidget {
                     shape: BoxShape.circle,
                     color: selectedColor != null
                         ? Utils.isSameDay(this.date!, DateTime.now())
-                            ? Color(0xffAE9A7A)
+                            ? sameDayColor ?? Color(0xffAE9A7A)
                             : selectedColor
                         : Theme.of(context).primaryColor,
                   )
@@ -142,7 +144,7 @@ class CalendarTile extends StatelessWidget {
                                         Theme.of(context).primaryColor;
                                   if (isSelected) return Colors.white;
                                   return eventColor ??
-                                      Theme.of(context).accentColor;
+                                      Theme.of(context).primaryColor;
                                 }())),
                           );
                         }).toList())
